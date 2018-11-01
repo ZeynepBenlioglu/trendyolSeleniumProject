@@ -14,14 +14,14 @@ public class CombinPage extends BaseClass {
     public WebElement brandType;
 
 
-    @FindBy(css = ".filter-container>div:nth-child(1) i")
+    @FindBy(css = ".filter-container>div:nth-child(2) i")
     public WebElement categoryType;
 
-    @FindBy(css = ".filter-container>div:nth-child(2) i")
+    @FindBy(css = ".filter-container>div:nth-child(3) i")
     public WebElement sizeType;
 
-   // @FindBy(css = ".filter-container>div:nth-child(3) i")
-   //public WebElement colorType;
+    @FindBy(css = ".filter-container>div:nth-child(4) i")
+   public WebElement colorType;
 
     @FindBy (css = ".product-box:nth-child(1)")
     public WebElement productBox;
@@ -41,11 +41,11 @@ public class CombinPage extends BaseClass {
         click(sizeType);
     }
 
-    /*public void clickcolorType() {
+    public void clickcolorType() {
         waitForElementClickable(colorType);
         click(colorType);
     }
-*/
+
     public void clickproductBox() {
         //actionClick(productBox);
         waitForElementClickable(productBox);

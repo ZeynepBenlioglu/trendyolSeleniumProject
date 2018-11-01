@@ -2,6 +2,7 @@ package Actions;
 
 import BasePackage.BaseClass;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -62,4 +63,8 @@ public class Commands extends BaseClass {
 
     }
 
+    public static void scrollToElement(WebElement element) {
+        JavascriptExecutor scroll = (JavascriptExecutor) driver;
+        scroll.executeScript("arguments[0].scrollIntoView();", element);
+    }
 }
