@@ -1,14 +1,11 @@
-package MainPage;
+package page;
 
-import Actions.Commands;
-import org.junit.Assert;
+import BasePackage.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static Actions.Commands.*;
 
-
-public class ProductDetailPage {
+public class ProductDetailPage extends DriverManager {
 
     @FindBy(xpath = "(//div[@id='boutiqueDetailContainer']//a)[2]")
             public WebElement containerType;
@@ -24,7 +21,7 @@ public class ProductDetailPage {
 
     public void assertSizeSelect(String titleValue){
         waitForElementClickable(sizeSelect);
-        Commands.assertEquals(getAttribute(sizeSelect,"title"),titleValue);
+        assertEquals(getAttribute(sizeSelect,"title"),titleValue);
 
     }
 

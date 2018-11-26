@@ -1,17 +1,18 @@
-package Actions;
+package BasePackage;
 
-import BasePackage.BaseClass;
+import enums.URLFactory;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.URL;
+public class DriverManager {
 
-public class Commands extends BaseClass {
+    public static WebDriver driver;
 
     public static void click(WebElement element) {
         element.click();
@@ -54,12 +55,12 @@ public class Commands extends BaseClass {
     }
 
     public static String getAttribute(WebElement element, String attributename) {
-       return element.getAttribute(attributename);
+        return element.getAttribute(attributename);
     }
 
-    public static void navigateToURL(URL url) {
+    public static void navigateToURL(URLFactory url) {
 
-        driver.navigate().to(url);
+        driver.navigate().to(url.link);
 
     }
 

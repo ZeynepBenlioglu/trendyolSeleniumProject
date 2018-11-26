@@ -1,25 +1,25 @@
-package MainPage;
+package web;
 
-import Actions.Commands;
-import BasePackage.BaseClass;
+import BasePackage.BaseWebTest;
+import enums.URLFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import page.BoutiqueDetailPage;
+import page.CombinPage;
+import page.MainClass;
+import page.ProductDetailPage;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
 
-import static Actions.Commands.*;
-
-public class TrendyolFirstPage extends BaseClass {
+public class TrendyolFirstPage extends BaseWebTest {
 
     MainClass mainClass;
     BoutiqueDetailPage boutiquedetail;
@@ -28,10 +28,10 @@ public class TrendyolFirstPage extends BaseClass {
 
     @Before
     public void setup() {
-        mainClass = PageFactory.initElements(BaseClass.driver, MainClass.class);
-        boutiquedetail = PageFactory.initElements(BaseClass.driver, BoutiqueDetailPage.class);
-        combinPage = PageFactory.initElements(BaseClass.driver, CombinPage.class);
-        ProductDetail = PageFactory.initElements(BaseClass.driver, ProductDetailPage.class);
+        mainClass = PageFactory.initElements(BaseWebTest.driver, MainClass.class);
+        boutiquedetail = PageFactory.initElements(BaseWebTest.driver, BoutiqueDetailPage.class);
+        combinPage = PageFactory.initElements(BaseWebTest.driver, CombinPage.class);
+        ProductDetail = PageFactory.initElements(BaseWebTest.driver, ProductDetailPage.class);
 
         //driver.manage().window().setSize(new Dimension(500,700));
 
@@ -41,10 +41,10 @@ public class TrendyolFirstPage extends BaseClass {
     @Test
     public void selectFemale() throws MalformedURLException, InterruptedException {
 
-        String homePage="https://www.trendyol.com/";
-        navigateToURL(new URL(homePage));
 
-        Assert.assertTrue(driver.getCurrentUrl().contains(homePage));
+        navigateToURL(URLFactory.MAIN_PAGE);
+
+        Assert.assertTrue(driver.getCurrentUrl().contains(URLFactory.MAIN_PAGE.link));
         mainClass.clickFemalePopup();
         Thread.sleep(2000);
 

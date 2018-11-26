@@ -1,29 +1,23 @@
-package MainPage;
+package web;
 
 
-
-import BasePackage.BaseClass;
+import BasePackage.BaseWebTest;
+import enums.URLFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.ClickAction;
 import org.openqa.selenium.support.PageFactory;
+import page.BoutiqueDetailPage;
+import page.MainClass;
 
 import java.net.MalformedURLException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.*;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
 
-import static Actions.Commands.*;
-
-public class BagSearchPage extends BaseClass {
+public class BagSearchPage extends BaseWebTest {
 
 
     MainClass mainClass;
@@ -31,8 +25,8 @@ public class BagSearchPage extends BaseClass {
 
     @Before
     public void setup() {
-        mainClass = PageFactory.initElements(BaseClass.driver, MainClass.class);
-        boutiquedetail = PageFactory.initElements(BaseClass.driver, BoutiqueDetailPage.class);
+        mainClass = PageFactory.initElements(BaseWebTest.driver, MainClass.class);
+        boutiquedetail = PageFactory.initElements(BaseWebTest.driver, BoutiqueDetailPage.class);
 
        // driver.manage().window().setSize(new Dimension(500,700));
 
@@ -42,7 +36,7 @@ public class BagSearchPage extends BaseClass {
     @Test
     public void selectFemale() throws MalformedURLException, InterruptedException {
         String homePage="https://www.trendyol.com/";
-        navigateToURL(new URL(homePage));
+        navigateToURL(URLFactory.MAIN_PAGE);
 
         Assert.assertTrue(driver.getCurrentUrl().contains(homePage));
         mainClass.clickFemalePopup();

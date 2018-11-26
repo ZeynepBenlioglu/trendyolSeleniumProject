@@ -1,13 +1,10 @@
-package MainPage;
+package page;
 
-import BasePackage.BaseClass;
+import BasePackage.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static Actions.Commands.click;
-import static Actions.Commands.waitForElementClickable;
-
-public class CombinPage extends BaseClass {
+public class CombinPage extends DriverManager {
 
 
     @FindBy(css= ".filter-container>div:nth-child(1) i")
